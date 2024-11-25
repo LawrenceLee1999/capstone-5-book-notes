@@ -1,0 +1,78 @@
+<%- include('partials/header.ejs'); -%>
+
+<h1>Edit Book Review</h1>
+
+<div class="container mt-3">
+  <form action="/edit-review/<%= book.id %>" method="POST">
+    <input type="hidden" name="id" value="<%= book.id %>" />
+
+    <div class="mb-3">
+      <label for="book-name" class="form-label">Book Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="book-name"
+        value="<%= book.book_name %>"
+        name="book_name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="isbn" class="form-label">ISBN(13)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="isbn"
+        value="<%= book.isbn %>"
+        name="isbn"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <select
+        class="form-select"
+        id="rating"
+        name="rating"
+        required
+      >
+        <option value="0" <%= book.rating == 0 ? 'selected' : '' %>>0</option>
+        <option value="1" <%= book.rating == 1 ? 'selected' : '' %>>1</option>
+        <option value="2" <%= book.rating == 2 ? 'selected' : '' %>>2</option>
+        <option value="3" <%= book.rating == 3 ? 'selected' : '' %>>3</option>
+        <option value="4" <%= book.rating == 4 ? 'selected' : '' %>>4</option>
+        <option value="5" <%= book.rating == 5 ? 'selected' : '' %>>5</option>
+        <option value="6" <%= book.rating == 6 ? 'selected' : '' %>>6</option>
+        <option value="7" <%= book.rating == 7 ? 'selected' : '' %>>7</option>
+        <option value="8" <%= book.rating == 8 ? 'selected' : '' %>>8</option>
+        <option value="9" <%= book.rating == 9 ? 'selected' : '' %>>9</option>
+        <option value="10" <%= book.rating == 10 ? 'selected' : '' %>>10</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="date-read" class="form-label">Date Read</label>
+      <input
+        type="date"
+        class="form-control"
+        id="date-read"
+        value="<%= book.date_read ? book.date_read.toISOString().split('T')[0] : '' %>"
+        name="date_read"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="book-review" class="form-label">Book Review</label>
+      <textarea
+        class="form-control"
+        id="book-review"
+        rows="5"
+        placeholder="Write your review here..."
+        name="book_review"  
+        required
+      ><%= book.book_review %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

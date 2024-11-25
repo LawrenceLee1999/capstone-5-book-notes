@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container mt-3">
+  <h1>Create Book Review</h1>
+  <form action="/create-review" method="POST">
+    <div class="mb-3">
+      <label for="book-name" class="form-label">Book Name</label>
+      <input type="text" class="form-control" id="book-name" name="book_name" required />
+    </div>
+    <div class="mb-3">
+      <label for="isbn" class="form-label">ISBN(13)</label>
+      <input type="text" class="form-control" id="isbn" name="isbn" required />
+    </div>
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <select class="form-select" id="rating" name="rating" name="rating" required>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="date-read" class="form-label">Date Read</label>
+      <input type="date" class="form-control" id="date-read" name="date_read" required />
+    </div>
+    <div class="mb-3">
+      <label for="book-review" class="form-label">Book Review</label>
+      <textarea
+        class="form-control"
+        id="book-review"
+        name="book_review"
+        rows="5"
+        placeholder="Write your review here..."
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs'); -%>
